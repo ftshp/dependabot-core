@@ -13,6 +13,10 @@ module Dependabot
     attr_reader :base_commit_sha
 
     def perform_job
+      puts "====== FETCHER DEFINITION"
+      pp Environment.job_definition
+      puts "====== FETCHER DEFINITION"
+
       @base_commit_sha = nil
 
       begin

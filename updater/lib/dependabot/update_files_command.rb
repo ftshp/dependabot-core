@@ -8,6 +8,10 @@ require "dependabot/updater"
 module Dependabot
   class UpdateFilesCommand < BaseCommand
     def perform_job
+      puts "====== UPDATER DEFINITION"
+      pp Environment.job_definition
+      puts "====== UPDATER DEFINITION"
+
       # We expect the FileFetcherCommand to have been executed beforehand to place
       # encoded files and commit information in the environment, so let's retrieve
       # and decode them into an object.
@@ -24,8 +28,6 @@ module Dependabot
         job: job,
         job_definition: Environment.job_definition
       )
-
-      puts Environment.job_definition
 
       # TODO: Pull fatal error handling handling up into this class
       #
