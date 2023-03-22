@@ -25,6 +25,8 @@ module Dependabot
         job_definition: Environment.job_definition
       )
 
+      puts Environment.job_definition
+
       # TODO: Pull fatal error handling handling up into this class
       #
       # As above, we can remove the responsibility for handling fatal/job halting
