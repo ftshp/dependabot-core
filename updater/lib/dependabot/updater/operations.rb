@@ -3,6 +3,7 @@
 require "dependabot/updater/operations/group_update_all_versions"
 require "dependabot/updater/operations/refresh_version_update_pull_request"
 require "dependabot/updater/operations/update_all_versions"
+require "dependabot/updater/operations/update_vulnerable_version"
 
 # This module is responsible for determining which Operation a Job is requesting
 # the Updater to perform.
@@ -28,7 +29,8 @@ module Dependabot
       OPERATIONS = [
         GroupUpdateAllVersions,
         RefreshVersionUpdatePullRequest,
-        UpdateAllVersions
+        UpdateAllVersions,
+        UpdateVulnerableVersion
       ]
 
       def self.class_for(job:)
