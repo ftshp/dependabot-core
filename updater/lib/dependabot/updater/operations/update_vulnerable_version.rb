@@ -45,41 +45,18 @@ module Dependabot
                     :created_pull_requests
 
         def dependencies
-          all_deps = dependency_snapshot.dependencies
-
-          # Rebases and security updates have dependencies, version updates don't
-          if job.dependencies
-            # Gradle, Maven and Nuget dependency names can be case-insensitive and
-            # the dependency name in the security advisory often doesn't match what
-            # users have specified in their manifest.
-            #
-            # It's technically possibly to publish case-sensitive npm packages to a
-            # private registry but shouldn't cause problems here as job.dependencies
-            # is set either from an existing PR rebase/recreate or a security
-            # advisory.
-            job_dependencies = job.dependencies.map(&:downcase)
-            return all_deps.select do |dep|
-              job_dependencies.include?(dep.name.downcase)
-            end
+          # Gradle, Maven and Nuget dependency names can be case-insensitive and
+          # the dependency name in the security advisory often doesn't match what
+          # users have specified in their manifest.
+          #
+          # It's technically possibly to publish case-sensitive npm packages to a
+          # private registry but shouldn't cause problems here as job.dependencies
+          # is set either from an existing PR rebase/recreate or a security
+          # advisory.
+          job_dependencies = job.dependencies.map(&:downcase)
+          dependency_snapshot.dependencies.select do |dep|
+            job_dependencies.include?(dep.name.downcase)
           end
-
-          allowed_deps = all_deps.select { |d| job.allowed_update?(d) }
-          # Return dependencies in a random order, with top-level dependencies
-          # considered first so that dependency runs which time out don't always hit
-          # the same dependencies
-          allowed_deps = allowed_deps.shuffle unless ENV["UPDATER_DETERMINISTIC"]
-
-          if all_deps.any? && allowed_deps.none?
-            Dependabot.logger.info("Found no dependencies to update after filtering allowed " \
-                                   "updates")
-          end
-
-          # Consider updating vulnerable deps first. Only consider the first 10,
-          # though, to ensure they don't take up the entire update run
-          deps = allowed_deps.select { |d| job.vulnerable?(d) }.sample(10) +
-                 allowed_deps.reject { |d| job.vulnerable?(d) }
-
-          deps
         end
 
         def check_and_create_pr_with_error_handling(dependency)
