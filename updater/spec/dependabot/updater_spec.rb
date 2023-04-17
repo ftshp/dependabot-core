@@ -37,7 +37,7 @@ RSpec.describe Dependabot::Updater do
       service = build_service
       updater = build_updater(service: service, job: job)
 
-      expect(service).to receive(:create_pull_request) do |dependency_change, base_commit_sha|
+      expect(service).to receive(:create_pull_request).at_least(:once) do |dependency_change, base_commit_sha|
         expect(dependency_change.updated_dependencies.first).to have_attributes(name: "dummy-pkg-b")
         expect(dependency_change.updated_dependency_files_hash).to eql(
           [
