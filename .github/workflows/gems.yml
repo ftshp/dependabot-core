@@ -8,6 +8,7 @@ permissions:
 jobs:
   release-gems:
     name: Release gems to rubygems.org
+    if: ${{ github.repository == 'dependabot/dependabot-core' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

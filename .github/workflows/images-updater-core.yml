@@ -1,6 +1,6 @@
 name: Updater-Core image
 env:
-  UPDATER_CORE_IMAGE: "ghcr.io/dependabot/dependabot-updater-core"
+  UPDATER_CORE_IMAGE: "ghcr.io/ftshp/dependabot-updater-core"
 on:
   push:
     branches:
