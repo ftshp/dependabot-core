@@ -17,4 +17,4 @@ jobs:
           merge_method: rebase
           base: main
           head: main
-          pr_title: Sync fork with upstream
+          pr_title: Sync with upstream
