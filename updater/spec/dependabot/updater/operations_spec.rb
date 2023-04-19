@@ -7,6 +7,10 @@ require "spec_helper"
 
 RSpec.describe Dependabot::Updater::Operations do
   describe "::class_for" do
+    before do
+      Dependabot::Experiments.reset!
+    end
+
     it "returns nil if no operation matches" do
       # We always expect jobs that update a pull request to specify their
       # existing dependency changes, a job with this set of conditions
@@ -55,6 +59,17 @@ RSpec.describe Dependabot::Updater::Operations do
 
       expect(described_class.class_for(job: job)).
         to be(Dependabot::Updater::Operations::RefreshVersionUpdatePullRequest)
+    end
+
+    it "returns the CreateSecurityUpdatePullRequest class when the Job is for a new security update for a dependency" do
+      job = instance_double(Dependabot::Job,
+                            security_updates_only?: true,
+                            updating_a_pull_request?: false,
+                            dependencies: [anything],
+                            is_a?: true)
+
+      expect(described_class.class_for(job: job)).
+        to be(Dependabot::Updater::Operations::CreateSecurityUpdatePullRequest)
     end
 
     it "raises an argument error with anything other than a Dependabot::Job" do
