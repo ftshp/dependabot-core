@@ -56,7 +56,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.0-imagick \
     php8.0-imap \
     php8.0-intl \
-    php8.0-json \
     php8.0-ldap \
     php8.0-mbstring \
     php8.0-memcached \
@@ -90,7 +89,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.1-imagick \
     php8.1-imap \
     php8.1-intl \
-    php8.1-json \
     php8.1-ldap \
     php8.1-mbstring \
     php8.1-memcached \
@@ -124,7 +122,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.2-imagick \
     php8.2-imap \
     php8.2-intl \
-    php8.2-json \
     php8.2-ldap \
     php8.2-mbstring \
     php8.2-memcached \
