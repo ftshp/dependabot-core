@@ -50,7 +50,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.0-common \
     php8.0-curl \
     php8.0-gd \
-    php8.0-geoip \
     php8.0-gettext \
     php8.0-gmp \
     php8.0-imagick \
@@ -83,7 +82,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.1-common \
     php8.1-curl \
     php8.1-gd \
-    php8.1-geoip \
     php8.1-gettext \
     php8.1-gmp \
     php8.1-imagick \
@@ -116,7 +114,6 @@ RUN add-apt-repository ppa:ondrej/php \
     php8.2-common \
     php8.2-curl \
     php8.2-gd \
-    php8.2-geoip \
     php8.2-gettext \
     php8.2-gmp \
     php8.2-imagick \
