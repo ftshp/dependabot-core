@@ -157,7 +157,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.2.7",
+            "version": "v8.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -170,10 +170,10 @@
                 "shasum": ""
             },
             "require": {
-                "doctrine/inflector": "~1.0",
+                "doctrine/inflector": "^1.4|^2.0",
                 "ext-mbstring": "*",
-                "illuminate/contracts": "5.2.*",
-                "php": ">=5.5.9"
+                "illuminate/contracts": "^8.0",
+                "php": "^7.3|^8.0"
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the composer class (5.2.*).",
