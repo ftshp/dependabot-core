@@ -22,10 +22,10 @@ cp -r \
 
 cd "$install_dir"
 
-composer1 validate --no-check-publish
-composer1 install
-composer1 run lint -- --dry-run
-composer1 run stan
+/usr/bin/php7.4 /usr/local/bin/composer1 validate --no-check-publish
+/usr/bin/php7.4 /usr/local/bin/composer1 install
+/usr/bin/php7.4 /usr/local/bin/composer1 run lint -- --dry-run
+/usr/bin/php7.4 /usr/local/bin/composer1 run stan
 
 # Composer caches source zips and repo metadata, none of which is useful. Save space in this layer
 rm -Rf ~/.composer/cache
