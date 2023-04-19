@@ -482,8 +482,8 @@ RSpec.describe Dependabot::Composer::FileUpdater::LockfileUpdater do
       let(:dependency) do
         Dependabot::Dependency.new(
           name: "laravel/nova",
-          version: "2.0.9",
-          previous_version: "2.0.7",
+          version: "3.30.0",
+          previous_version: "3.19.0",
           requirements: [{
             file: "composer.json",
             requirement: "*",
@@ -516,7 +516,7 @@ RSpec.describe Dependabot::Composer::FileUpdater::LockfileUpdater do
         end
 
         it "does not attempt to download and has details of the updated item" do
-          expect(updated_lockfile_content).to include("\"version\":\"v2.0.9\"")
+          expect(updated_lockfile_content).to include("\"version\":\"v3.30.0\"")
         end
       end
     end

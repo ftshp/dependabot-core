@@ -468,7 +468,7 @@
       },
       {
           "name": "laravel/nova",
-          "version": "v2.0.7",
+          "version": "v3.19.0",
           "source": {
               "type": "git",
               "url": "git@github.com:laravel/nova.git",
@@ -485,7 +485,7 @@
               "doctrine/dbal": "^2.9",
               "illuminate/support": "^5.7.15 | 5.8.*",
               "moontoast/math": "^1.1",
-              "php": ">=7.1.0",
+              "php": "^7.2.5|^8.0",
               "spatie/once": "^1.1",
               "symfony/finder": "^4.0"
           },
