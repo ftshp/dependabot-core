@@ -703,17 +703,17 @@ RSpec.describe Dependabot::Composer::UpdateChecker do
     context "when an autoload is specified" do
       let(:project_name) { "autoload" }
       let(:dependency_name) { "illuminate/support" }
-      let(:dependency_version) { "5.2.7" }
+      let(:dependency_version) { "8.20.0" }
       let(:requirements) do
         [{
           file: "composer.json",
-          requirement: "^5.2.0",
+          requirement: "^8.20.0",
           groups: ["runtime"],
           source: nil
         }]
       end
 
-      it { is_expected.to be >= Gem::Version.new("5.2.30") }
+      it { is_expected.to be >= Gem::Version.new("8.40.0") }
     end
 
     context "when a sub-dependency would block the update" do
