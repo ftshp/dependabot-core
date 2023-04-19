@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "symfony/flex": "^1.0",
+        "symfony/flex": "^1.7",
         "symfony/lock": "^5.2"
     }
 }
