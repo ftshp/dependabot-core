@@ -3,8 +3,8 @@ name: Smoke
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   pull_request:
     paths-ignore:
       - docs/**
